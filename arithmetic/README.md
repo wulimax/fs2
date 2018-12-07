@@ -47,3 +47,31 @@ private void sortIntegers2(int[] arr){
     }
 }
 ```
+
+### 冒泡排序
+
+```java
+/**每日一练:冒泡排序
+ * 冒泡排序 :像冒泡泡一样,每次一个数滚到最后去
+ * 时间复杂度: O(N^2)
+ * @param arr
+ */
+private void sortIntegers3(int[] arr){
+    if(arr == null || arr.length < 1){ return; }
+    boolean needNextPass = true;
+    //经历一次外层循环最大的数到最后
+    for (int i=0;i<arr.length-1 && needNextPass;i++){
+        needNextPass = false;
+        for (int j =0;j < arr.length -i-1;j++){
+            //如果亮亮比较左边数均小于右边的数那说明已经排序好了,无须进行下一次遍历
+            if(arr[j] > arr[j+1]){
+                int tmp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = tmp;
+                needNextPass = true;
+            }
+        }
+    }
+}
+```
+
